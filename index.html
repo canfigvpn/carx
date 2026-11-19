@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10151e">
+  <meta name="description" content="دفترچه هوشمند سرویس و نگهداری پژو ۲۰۶">
+  <title>دفترچه پژو ۲۰۶</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">GARAGE • PERSONAL LOGBOOK</div>
+        <h1>دفترچه خودروی من</h1>
+        <p class="subhead">مدیریت هوشمند سرویس و نگهداری پژو ۲۰۶</p>
+      </div>
+      <button class="icon-btn" id="installBtn" title="نصب برنامه" hidden>＋</button>
+    </header>
+
+    <main>
+      <section class="page active" id="page-home">
+        <div class="car-card">
+          <div class="car-top">
+            <div>
+              <span class="muted">خودروی ثبت‌شده</span>
+              <h2>پژو ۲۰۶ تیپ ۲</h2>
+              <span class="car-meta">مدل قبل از ۱۳۹۰ • گیربکس دستی</span>
+            </div>
+            <div class="car-mark">206</div>
+          </div>
+          <div class="mileage-box">
+            <div>
+              <span class="muted">کیلومتر فعلی خودرو</span>
+              <div class="mileage-value" id="mileageView">۰</div>
+              <span class="muted small">کیلومتر</span>
+            </div>
+            <button class="outline-btn" id="editMileageBtn">ویرایش</button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><span class="stat-icon green">✓</span><span class="muted">سرویس‌های به‌روز</span><strong id="okCount">۰</strong></article>
+          <article class="stat-card"><span class="stat-icon amber">◷</span><span class="muted">نزدیک موعد</span><strong id="soonCount">۰</strong></article>
+          <article class="stat-card"><span class="stat-icon red">!</span><span class="muted">سررسید گذشته</span><strong id="lateCount">۰</strong></article>
+        </div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">MAINTENANCE</span><h2>وضعیت سرویس‌ها</h2></div>
+          <button class="text-btn" data-go="services">همه سرویس‌ها</button>
+        </div>
+        <div id="dashboardServices" class="service-list"></div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">RECENT ACTIVITY</span><h2>آخرین سوابق</h2></div>
+          <button class="text-btn" data-go="history">مشاهده تاریخچه</button>
+        </div>
+        <div id="recentHistory" class="history-list"></div>
+      </section>
+
+      <section class="page" id="page-services">
+        <div class="page-title-row"><div><span class="eyebrow">MAINTENANCE PLAN</span><h2>برنامه سرویس‌ها</h2></div><button class="primary-btn" id="addServiceBtn">＋ افزودن</button></div>
+        <p class="helper">برای هر قطعه، فاصله تعویض بر اساس کیلومتر و زمان را تعیین کن.</p>
+        <input class="search" id="serviceSearch" placeholder="جستجوی سرویس یا قطعه…">
+        <div id="allServices" class="service-list"></div>
+      </section>
+
+      <section class="page" id="page-history">
+        <div class="page-title-row"><div><span class="eyebrow">SERVICE RECORDS</span><h2>تاریخچه سرویس</h2></div><button class="primary-btn" id="addRecordBtn">＋ ثبت سرویس</button></div>
+        <input class="search" id="historySearch" placeholder="جستجوی سوابق…">
+        <div id="historyList" class="history-list"></div>
+      </section>
+
+      <section class="page" id="page-fuel">
+        <div class="page-title-row"><div><span class="eyebrow">FUEL LOG</span><h2>سوابق سوخت</h2></div><button class="primary-btn" id="addFuelBtn">＋ ثبت سوخت</button></div>
+        <div class="summary-strip"><span>مجموع هزینه ثبت‌شده سوخت</span><strong id="fuelTotal">۰ تومان</strong></div>
+        <div id="fuelList" class="history-list"></div>
+      </section>
+
+      <section class="page" id="page-settings">
+        <div><span class="eyebrow">BACKUP & SETTINGS</span><h2>تنظیمات و پشتیبان‌گیری</h2></div>
+        <article class="panel">
+          <h3>ذخیره‌سازی داخل گوشی</h3>
+          <p class="muted">اطلاعات به‌صورت خودکار در حافظه برنامه ذخیره می‌شود و برای ثبت و مشاهده سوابق به اینترنت نیاز نداری.</p>
+          <div class="status-line"><span class="status-dot"></span><strong>ذخیره خودکار محلی فعال است</strong></div>
+        </article>
+        <article class="panel">
+          <h3>پشتیبان‌گیری فایل</h3>
+          <p class="muted">یک نسخه کامل از خودرو، برنامه سرویس، تاریخچه و سوخت دریافت کن. فایل را در پوشه امن یا فضای ابری نگه دار.</p>
+          <div class="button-row"><button class="primary-btn" id="exportBtn">دریافت نسخه پشتیبان</button><button class="secondary-btn" id="importBtn">بازیابی فایل</button><input type="file" id="importFile" accept=".json,application/json" hidden></div>
+          <small class="muted" id="backupTime">هنوز نسخه پشتیبان فایل نگرفته‌ای.</small>
+        </article>
+        <article class="panel drive-panel">
+          <div class="drive-heading"><div class="drive-logo">G</div><div><h3>پشتیبان‌گیری Google Drive</h3><p class="muted">پس از اتصال حساب، تغییرات جدید به‌طور خودکار در Drive پشتیبان‌گیری می‌شوند.</p></div></div>
+          <label class="field-label" for="clientId">شناسه OAuth برنامه (یک‌بار تنظیم شود)</label>
+          <input id="clientId" class="field" placeholder="xxxxxxxxxxxx.apps.googleusercontent.com" autocomplete="off" dir="ltr">
+          <div class="button-row"><button class="primary-btn" id="saveClientBtn">ذخیره شناسه</button><button class="secondary-btn" id="connectDriveBtn">اتصال Google Drive</button></div>
+          <div class="status-line" id="driveStatus"><span class="status-dot muted-dot"></span><span>Google Drive هنوز متصل نشده است.</span></div>
+          <div class="button-row"><button class="secondary-btn" id="syncNowBtn">پشتیبان‌گیری همین حالا</button><button class="danger-btn" id="disconnectDriveBtn">قطع اتصال</button></div>
+          <small class="muted">برای فعال‌سازی، شناسه OAuth مخصوص وب را طبق راهنمای فایل README تنظیم کن. برنامه به فایل پشتیبان خودش در Drive دسترسی می‌گیرد.</small>
+        </article>
+        <article class="panel">
+          <h3>اطلاعات خودرو</h3>
+          <div class="form-grid">
+            <label>نام خودرو<input class="field" id="carName" value="پژو ۲۰۶ تیپ ۲"></label>
+            <label>توضیحات<input class="field" id="carNote" value="مدل قبل از ۱۳۹۰"></label>
+          </div>
+          <button class="primary-btn full" id="saveCarBtn">ذخیره اطلاعات خودرو</button>
+        </article>
+        <article class="panel">
+          <h3>مدیریت داده‌ها</h3>
+          <p class="muted">پاک کردن داده‌ها برگشت‌پذیر نیست؛ قبل از آن نسخه پشتیبان بگیر.</p>
+          <button class="danger-btn" id="clearDataBtn">پاک کردن تمام اطلاعات برنامه</button>
+        </article>
+        <div class="app-version">MY PEUGEOT 206 • نسخه ۱.۰.۰</div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item selected" data-page="home"><span>⌂</span>خانه</button>
+      <button class="nav-item" data-page="services"><span>⚙</span>سرویس‌ها</button>
+      <button class="nav-item" data-page="history"><span>◷</span>تاریخچه</button>
+      <button class="nav-item" data-page="fuel"><span>⛽</span>سوخت</button>
+      <button class="nav-item" data-page="settings"><span>☷</span>تنظیمات</button>
+    </nav>
+  </div>
+
+  <dialog id="modal">
+    <form method="dialog" id="modalForm">
+      <div class="modal-head"><h2 id="modalTitle">ثبت اطلاعات</h2><button class="close-btn" value="cancel" aria-label="بستن">×</button></div>
+      <div id="modalContent"></div>
+      <div class="modal-actions"><button class="secondary-btn" value="cancel">انصراف</button><button class="primary-btn" id="modalSave" value="save">ذخیره</button></div>
+    </form>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+  <script async defer src="https://accounts.google.com/gsi/client"></script>
+</body>
+</html>
