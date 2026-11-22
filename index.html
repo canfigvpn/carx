@@ -1,143 +1,165 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#10151e">
-  <meta name="description" content="دفترچه هوشمند سرویس و نگهداری پژو ۲۰۶">
-  <title>دفترچه پژو ۲۰۶</title>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f3f6fb">
+<meta name="description" content="مدیریت سرویس، نگهداری و هزینه‌های خودرو">
+<title>گاراژ من | مدیریت سرویس خودرو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
+<style>
+:root{font-family:Vazirmatn,sans-serif;color-scheme:light;--bg:#f3f6fb;--surface:#fff;--surface2:#f7f9fd;--text:#172033;--muted:#788397;--line:#e7ecf3;--shadow:0 12px 35px #2538580d;--accent:#536dfe;--red:#d92d3a;--redbg:#fff0f1;--orange:#f08a16;--orangebg:#fff4e6;--green:#169b62;--greenbg:#eaf8f1;--bluegray:#eaf1f8;--radius:22px}
+:root[data-theme=dark]{color-scheme:dark;--bg:#10151e;--surface:#1a2230;--surface2:#202a39;--text:#edf2fa;--muted:#9ba9bd;--line:#2b3748;--shadow:0 12px 35px #0003;--accent:#8b9aff;--red:#ff5967;--redbg:#3b2028;--orange:#ffad45;--orangebg:#3a2b1d;--green:#42c98a;--greenbg:#1d382e;--bluegray:#29394a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-size:14px;padding:18px 14px calc(105px + env(safe-area-inset-bottom));min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0} .app{max-width:760px;margin:auto}.topbar{position:sticky;top:8px;z-index:10;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}
+.topbox{min-width:0;background:var(--surface2);border:1px solid var(--line);border-radius:17px;padding:10px 12px}.topbox label{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.topbox input{width:100%;border:0;outline:0;background:transparent;color:var(--text);font-weight:800;font-size:17px;min-width:0}.topbox input::placeholder{color:var(--muted);font-size:13px;font-weight:400}.km-input{direction:ltr;text-align:right;font-variant-numeric:tabular-nums}.page{display:none;padding-top:22px}.page.active{display:block}.page-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.eyebrow{font-size:10px;color:var(--muted);letter-spacing:1.3px;font-weight:700}.page h1,.page h2{margin:3px 0 0;font-size:21px;font-weight:800}.muted{color:var(--muted)}.small{font-size:11px}.icon{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-size:21px;line-height:1;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;direction:ltr;font-feature-settings:'liga';-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
+.navbar{position:fixed;z-index:20;bottom:calc(12px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(720px,calc(100% - 24px));display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:7px;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:23px;box-shadow:0 12px 40px #17203320}.nav-item{background:transparent;color:var(--muted);border-radius:17px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:9px 3px;font-size:11px;font-weight:600;transition:.2s}.nav-item .icon{font-size:22px}.nav-item.active{background:var(--surface2);color:var(--accent);box-shadow:inset 0 0 0 1px var(--line)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:12px}.hero{background:linear-gradient(135deg,var(--surface),var(--surface2));}.hero-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.hero-title{font-size:13px;font-weight:700}.hero-sub{font-size:11px;color:var(--muted);margin-top:4px}.car-symbol{width:48px;height:48px;border-radius:16px;background:var(--bluegray);display:grid;place-items:center;color:var(--accent)}.car-symbol .icon{font-size:27px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0 22px}.stat{padding:12px 8px;border-radius:17px;background:var(--surface);border:1px solid var(--line);text-align:center;min-width:0}.stat strong{display:block;font-size:23px;margin-top:5px;font-variant-numeric:tabular-nums}.stat span{font-size:10px;color:var(--muted)}.stat.red strong{color:var(--red)}.stat.orange strong{color:var(--orange)}.stat.green strong{color:var(--green)}.stat.blue strong{color:#7394b8}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:20px 2px 10px}.section-title h3{font-size:15px;margin:0}.section-title small{color:var(--muted)}
+.status-group{border:1px solid var(--line);border-radius:20px;padding:12px;background:var(--surface);margin-bottom:11px}.status-group.red{border-color:color-mix(in srgb,var(--red) 55%,var(--line))}.status-group.orange{border-color:color-mix(in srgb,var(--orange) 65%,var(--line))}.status-group.green{border-color:color-mix(in srgb,var(--green) 55%,var(--line))}.status-group.blue{border-color:#b8cde0;background:var(--surface)}.status-head{display:flex;align-items:center;gap:8px;font-weight:800;margin-bottom:9px}.dot{width:9px;height:9px;border-radius:50%;background:currentColor}.red .status-head{color:var(--red)}.orange .status-head{color:var(--orange)}.green .status-head{color:var(--green)}.blue .status-head{color:#7797b8}
+.service{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 2px;border-top:1px solid var(--line)}.service:first-of-type{border-top:0}.service-name{font-weight:700;font-size:13px}.service-meta{font-size:10px;color:var(--muted);margin-top:4px}.service-actions{display:flex;gap:5px;flex-shrink:0}.mini-btn{background:var(--surface2);border:1px solid var(--line);color:var(--muted);border-radius:11px;padding:7px}.mini-btn .icon{font-size:18px}.pill{font-size:10px;border-radius:30px;padding:5px 9px;font-weight:700;white-space:nowrap}.pill.red{background:var(--redbg);color:var(--red)}.pill.orange{background:var(--orangebg);color:var(--orange)}.pill.green{background:var(--greenbg);color:var(--green)}.pill.blue{background:var(--bluegray);color:#6f8daa}
+.primary,.secondary,.danger{padding:10px 14px;border-radius:13px;font-size:12px;font-weight:700}.primary{background:var(--accent);color:white}.secondary{background:var(--surface2);color:var(--text);border:1px solid var(--line)}.danger{background:var(--redbg);color:var(--red)}.full{width:100%}.search,.field,select,textarea{width:100%;padding:12px 13px;background:var(--surface);border:1px solid var(--line);border-radius:14px;color:var(--text);outline:none;margin:5px 0 12px}.search:focus,.field:focus,select:focus,textarea:focus{border-color:var(--accent)}label.field-label{display:block;font-size:11px;color:var(--muted);font-weight:600}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.record{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px 2px;border-bottom:1px solid var(--line)}.record:last-child{border-bottom:0}.record strong{font-size:13px}.record small{display:block;color:var(--muted);margin-top:4px;font-size:10px}.amount{font-weight:800;white-space:nowrap;font-size:12px}.empty{text-align:center;color:var(--muted);padding:24px 12px;font-size:12px}.summary{display:grid;grid-template-columns:1fr 1fr;gap:10px}.summary .card{margin:0}.summary strong{display:block;font-size:19px;margin-top:7px}.setting-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}.setting-row:last-child{border:0}.setting-row strong{font-size:13px}.setting-row small{display:block;color:var(--muted);font-size:10px;margin-top:4px}.switch{width:48px;height:27px;border-radius:30px;background:var(--line);position:relative;flex-shrink:0}.switch:after{content:'';position:absolute;top:3px;right:3px;width:21px;height:21px;border-radius:50%;background:var(--surface);transition:.2s}.switch.on{background:var(--accent)}.switch.on:after{right:24px}.note{font-size:11px;color:var(--muted);line-height:1.9}.modal-backdrop{position:fixed;inset:0;background:#0008;z-index:40;display:none;align-items:flex-end;justify-content:center;padding:12px}.modal-backdrop.show{display:flex}.modal{width:min(600px,100%);max-height:88vh;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:25px;padding:18px;box-shadow:0 20px 70px #0004}.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.modal-head h3{margin:0;font-size:17px}.close{background:var(--surface2);color:var(--text);border-radius:12px;padding:7px 10px}.actions{display:flex;gap:8px;margin-top:12px}.actions>*{flex:1}.toast{position:fixed;z-index:60;bottom:100px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:var(--text);color:var(--surface);padding:11px 17px;border-radius:13px;font-size:12px;transition:.2s;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.hidden{display:none!important}.divider{height:1px;background:var(--line);margin:13px 0}.filter-row{display:flex;gap:7px;overflow:auto;padding:3px 0 10px}.filter{white-space:nowrap;padding:8px 12px;border-radius:30px;background:var(--surface);border:1px solid var(--line);color:var(--muted);font-size:11px}.filter.active{background:var(--accent);color:white;border-color:var(--accent)}@media(max-width:420px){body{padding-left:10px;padding-right:10px}.stats{gap:5px}.stat{padding:10px 4px}.stat strong{font-size:19px}.stat span{font-size:9px}.topbar{gap:7px;padding:8px}.topbox{padding:9px}.topbox input{font-size:15px}.grid2{gap:6px}}
+</style>
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <div>
-        <div class="eyebrow">GARAGE • PERSONAL LOGBOOK</div>
-        <h1>دفترچه خودروی من</h1>
-        <p class="subhead">مدیریت هوشمند سرویس و نگهداری پژو ۲۰۶</p>
-      </div>
-      <button class="icon-btn" id="installBtn" title="نصب برنامه" hidden>＋</button>
-    </header>
-
-    <main>
-      <section class="page active" id="page-home">
-        <div class="car-card">
-          <div class="car-top">
-            <div>
-              <span class="muted">خودروی ثبت‌شده</span>
-              <h2>پژو ۲۰۶ تیپ ۲</h2>
-              <span class="car-meta">مدل قبل از ۱۳۹۰ • گیربکس دستی</span>
-            </div>
-            <div class="car-mark">206</div>
-          </div>
-          <div class="mileage-box">
-            <div>
-              <span class="muted">کیلومتر فعلی خودرو</span>
-              <div class="mileage-value" id="mileageView">۰</div>
-              <span class="muted small">کیلومتر</span>
-            </div>
-            <button class="outline-btn" id="editMileageBtn">ویرایش</button>
-          </div>
-        </div>
-
-        <div class="stats-grid">
-          <article class="stat-card"><span class="stat-icon green">✓</span><span class="muted">سرویس‌های به‌روز</span><strong id="okCount">۰</strong></article>
-          <article class="stat-card"><span class="stat-icon amber">◷</span><span class="muted">نزدیک موعد</span><strong id="soonCount">۰</strong></article>
-          <article class="stat-card"><span class="stat-icon red">!</span><span class="muted">سررسید گذشته</span><strong id="lateCount">۰</strong></article>
-        </div>
-
-        <div class="section-heading">
-          <div><span class="eyebrow">MAINTENANCE</span><h2>وضعیت سرویس‌ها</h2></div>
-          <button class="text-btn" data-go="services">همه سرویس‌ها</button>
-        </div>
-        <div id="dashboardServices" class="service-list"></div>
-
-        <div class="section-heading">
-          <div><span class="eyebrow">RECENT ACTIVITY</span><h2>آخرین سوابق</h2></div>
-          <button class="text-btn" data-go="history">مشاهده تاریخچه</button>
-        </div>
-        <div id="recentHistory" class="history-list"></div>
-      </section>
-
-      <section class="page" id="page-services">
-        <div class="page-title-row"><div><span class="eyebrow">MAINTENANCE PLAN</span><h2>برنامه سرویس‌ها</h2></div><button class="primary-btn" id="addServiceBtn">＋ افزودن</button></div>
-        <p class="helper">برای هر قطعه، فاصله تعویض بر اساس کیلومتر و زمان را تعیین کن.</p>
-        <input class="search" id="serviceSearch" placeholder="جستجوی سرویس یا قطعه…">
-        <div id="allServices" class="service-list"></div>
-      </section>
-
-      <section class="page" id="page-history">
-        <div class="page-title-row"><div><span class="eyebrow">SERVICE RECORDS</span><h2>تاریخچه سرویس</h2></div><button class="primary-btn" id="addRecordBtn">＋ ثبت سرویس</button></div>
-        <input class="search" id="historySearch" placeholder="جستجوی سوابق…">
-        <div id="historyList" class="history-list"></div>
-      </section>
-
-      <section class="page" id="page-fuel">
-        <div class="page-title-row"><div><span class="eyebrow">FUEL LOG</span><h2>سوابق سوخت</h2></div><button class="primary-btn" id="addFuelBtn">＋ ثبت سوخت</button></div>
-        <div class="summary-strip"><span>مجموع هزینه ثبت‌شده سوخت</span><strong id="fuelTotal">۰ تومان</strong></div>
-        <div id="fuelList" class="history-list"></div>
-      </section>
-
-      <section class="page" id="page-settings">
-        <div><span class="eyebrow">BACKUP & SETTINGS</span><h2>تنظیمات و پشتیبان‌گیری</h2></div>
-        <article class="panel">
-          <h3>ذخیره‌سازی داخل گوشی</h3>
-          <p class="muted">اطلاعات به‌صورت خودکار در حافظه برنامه ذخیره می‌شود و برای ثبت و مشاهده سوابق به اینترنت نیاز نداری.</p>
-          <div class="status-line"><span class="status-dot"></span><strong>ذخیره خودکار محلی فعال است</strong></div>
-        </article>
-        <article class="panel">
-          <h3>پشتیبان‌گیری فایل</h3>
-          <p class="muted">یک نسخه کامل از خودرو، برنامه سرویس، تاریخچه و سوخت دریافت کن. فایل را در پوشه امن یا فضای ابری نگه دار.</p>
-          <div class="button-row"><button class="primary-btn" id="exportBtn">دریافت نسخه پشتیبان</button><button class="secondary-btn" id="importBtn">بازیابی فایل</button><input type="file" id="importFile" accept=".json,application/json" hidden></div>
-          <small class="muted" id="backupTime">هنوز نسخه پشتیبان فایل نگرفته‌ای.</small>
-        </article>
-        <article class="panel drive-panel">
-          <div class="drive-heading"><div class="drive-logo">G</div><div><h3>پشتیبان‌گیری Google Drive</h3><p class="muted">پس از اتصال حساب، تغییرات جدید به‌طور خودکار در Drive پشتیبان‌گیری می‌شوند.</p></div></div>
-          <label class="field-label" for="clientId">شناسه OAuth برنامه (یک‌بار تنظیم شود)</label>
-          <input id="clientId" class="field" placeholder="xxxxxxxxxxxx.apps.googleusercontent.com" autocomplete="off" dir="ltr">
-          <div class="button-row"><button class="primary-btn" id="saveClientBtn">ذخیره شناسه</button><button class="secondary-btn" id="connectDriveBtn">اتصال Google Drive</button></div>
-          <div class="status-line" id="driveStatus"><span class="status-dot muted-dot"></span><span>Google Drive هنوز متصل نشده است.</span></div>
-          <div class="button-row"><button class="secondary-btn" id="syncNowBtn">پشتیبان‌گیری همین حالا</button><button class="danger-btn" id="disconnectDriveBtn">قطع اتصال</button></div>
-          <small class="muted">برای فعال‌سازی، شناسه OAuth مخصوص وب را طبق راهنمای فایل README تنظیم کن. برنامه به فایل پشتیبان خودش در Drive دسترسی می‌گیرد.</small>
-        </article>
-        <article class="panel">
-          <h3>اطلاعات خودرو</h3>
-          <div class="form-grid">
-            <label>نام خودرو<input class="field" id="carName" value="پژو ۲۰۶ تیپ ۲"></label>
-            <label>توضیحات<input class="field" id="carNote" value="مدل قبل از ۱۳۹۰"></label>
-          </div>
-          <button class="primary-btn full" id="saveCarBtn">ذخیره اطلاعات خودرو</button>
-        </article>
-        <article class="panel">
-          <h3>مدیریت داده‌ها</h3>
-          <p class="muted">پاک کردن داده‌ها برگشت‌پذیر نیست؛ قبل از آن نسخه پشتیبان بگیر.</p>
-          <button class="danger-btn" id="clearDataBtn">پاک کردن تمام اطلاعات برنامه</button>
-        </article>
-        <div class="app-version">MY PEUGEOT 206 • نسخه ۱.۰.۰</div>
-      </section>
-    </main>
-
-    <nav class="bottom-nav">
-      <button class="nav-item selected" data-page="home"><span>⌂</span>خانه</button>
-      <button class="nav-item" data-page="services"><span>⚙</span>سرویس‌ها</button>
-      <button class="nav-item" data-page="history"><span>◷</span>تاریخچه</button>
-      <button class="nav-item" data-page="fuel"><span>⛽</span>سوخت</button>
-      <button class="nav-item" data-page="settings"><span>☷</span>تنظیمات</button>
-    </nav>
-  </div>
-
-  <dialog id="modal">
-    <form method="dialog" id="modalForm">
-      <div class="modal-head"><h2 id="modalTitle">ثبت اطلاعات</h2><button class="close-btn" value="cancel" aria-label="بستن">×</button></div>
-      <div id="modalContent"></div>
-      <div class="modal-actions"><button class="secondary-btn" value="cancel">انصراف</button><button class="primary-btn" id="modalSave" value="save">ذخیره</button></div>
-    </form>
-  </dialog>
-  <div id="toast" role="status" aria-live="polite"></div>
-  <script src="./config.js"></script>
-  <script src="./app.js"></script>
-  <script async defer src="https://accounts.google.com/gsi/client"></script>
+<div class="app">
+<header class="topbar">
+ <div class="topbox"><label for="plate">پلاک خودرو</label><input id="plate" maxlength="16" placeholder="مثلاً ۱۲ الف ۳۴۵ ایران ۶۷"></div>
+ <div class="topbox"><label for="mileage">کیلومتر طی‌شده خودرو</label><input id="mileage" class="km-input" type="number" min="0" inputmode="numeric" placeholder="۰"></div>
+</header>
+<main>
+<section class="page active" id="page-home">
+ <div class="page-head"><div><div class="eyebrow">MY GARAGE</div><h1>خانه</h1></div><span class="pill blue" id="vehicleBadge">مدیریت خودرو</span></div>
+ <div class="card hero"><div class="hero-row"><div><div class="hero-title" id="carTitle">دفترچه هوشمند خودرو</div><div class="hero-sub">وضعیت نگهداری و سرویس‌های دوره‌ای</div></div><div class="car-symbol"><span class="icon">directions_car</span></div></div></div>
+ <div class="stats">
+  <div class="stat red"><span>گذشته از موعد</span><strong id="countLate">۰</strong></div>
+  <div class="stat orange"><span>نزدیک موعد</span><strong id="countSoon">۰</strong></div>
+  <div class="stat green"><span>به‌روز</span><strong id="countGood">۰</strong></div>
+  <div class="stat blue"><span>ثبت نشده</span><strong id="countNew">۰</strong></div>
+ </div>
+ <div class="section-title"><h3>وضعیت سرویس‌ها</h3><small id="serviceCount">۰ سرویس</small></div>
+ <div id="dashboard"></div>
+</section>
+<section class="page" id="page-history">
+ <div class="page-head"><div><div class="eyebrow">SERVICE LOG</div><h2>تاریخچه</h2></div><button class="primary" id="newRecord">＋ ثبت سرویس</button></div>
+ <input class="search" id="historySearch" placeholder="جستجوی سرویس، قطعه یا یادداشت">
+ <div class="card" id="historyList"></div>
+</section>
+<section class="page" id="page-report">
+ <div class="page-head"><div><div class="eyebrow">COST ANALYTICS</div><h2>گزارش هزینه</h2></div></div>
+ <div class="summary">
+  <div class="card"><span class="muted small">مجموع هزینه سرویس‌ها</span><strong id="serviceCost">۰ تومان</strong></div>
+  <div class="card"><span class="muted small">مجموع هزینه سوخت</span><strong id="fuelCost">۰ تومان</strong></div>
+  <div class="card"><span class="muted small">تعداد سوابق</span><strong id="recordCount">۰</strong></div>
+  <div class="card"><span class="muted small">مجموع کل هزینه‌ها</span><strong id="allCost">۰ تومان</strong></div>
+ </div>
+ <div class="section-title"><h3>ریز هزینه‌ها</h3><small>بر اساس سوابق ثبت‌شده</small></div>
+ <div class="card" id="costBreakdown"></div>
+ <div class="actions"><button class="secondary" id="exportReport">خروجی CSV گزارش</button><button class="primary" id="addFuel">＋ ثبت هزینه سوخت</button></div>
+</section>
+<section class="page" id="page-settings">
+ <div class="page-head"><div><div class="eyebrow">PREFERENCES</div><h2>تنظیمات</h2></div></div>
+ <div class="card">
+  <div class="section-title"><h3>ظاهر برنامه</h3></div>
+  <div class="setting-row"><div><strong>تم روشن</strong><small>نمایش روشن و ساده</small></div><button class="secondary" id="lightTheme">روشن</button></div>
+  <div class="setting-row"><div><strong>تم تاریک</strong><small>مناسب محیط کم‌نور</small></div><button class="secondary" id="darkTheme">تاریک</button></div>
+ </div>
+ <div class="card">
+  <div class="section-title"><h3>پشتیبان‌گیری آفلاین</h3></div>
+  <p class="note">اطلاعات به‌صورت خودکار روی همین دستگاه ذخیره می‌شود. برای انتقال یا نگهداری امن، فایل پشتیبان بگیر.</p>
+  <div class="actions"><button class="primary" id="backupDownload">دریافت فایل پشتیبان</button><button class="secondary" id="backupRestore">بازیابی فایل</button><input id="backupFile" type="file" accept="application/json,.json" class="hidden"></div>
+  <small class="muted" id="backupInfo">ذخیره خودکار محلی فعال است.</small>
+ </div>
+ <div class="card">
+  <div class="section-title"><h3>پشتیبان‌گیری آنلاین Google Drive</h3><span class="icon" style="color:#4285f4">cloud</span></div>
+  <p class="note">برای اتصال، یک OAuth Client ID از نوع Web application بساز، Google Drive API را فعال کن و دامنه اجرای سایت را در Authorized JavaScript origins قرار بده. برنامه فقط به پوشه اختصاصی appDataFolder دسترسی می‌گیرد.</p>
+  <label class="field-label" for="googleClient">Google OAuth Client ID</label><input class="field" id="googleClient" dir="ltr" placeholder="xxxxx.apps.googleusercontent.com">
+  <div class="actions"><button class="secondary" id="saveGoogle">ذخیره شناسه</button><button class="primary" id="connectGoogle">اتصال حساب گوگل</button></div>
+  <div class="setting-row"><div><strong>وضعیت اتصال</strong><small id="googleStatus">متصل نشده</small></div><span class="pill blue" id="googleBadge">آفلاین</span></div>
+  <div class="actions"><button class="primary" id="syncGoogle">پشتیبان‌گیری در Drive</button><button class="danger" id="disconnectGoogle">قطع اتصال</button></div>
+  <p class="note">اتصال Google Drive نیازمند اینترنت و تنظیم OAuth معتبر است. توکن دسترسی فقط تا پایان نشست جاری در حافظه نگهداری می‌شود.</p>
+ </div>
+ <div class="card">
+  <div class="section-title"><h3>خودرو و بانک سرویس</h3></div>
+  <label class="field-label" for="vehicleModel">مدل خودرو برای پیشنهاد سرویس‌ها</label>
+  <select id="vehicleModel"><option value="general">عمومی / سایر خودروها</option><option value="pride">پراید</option><option value="206">پژو ۲۰۶</option><option value="405">پژو ۴۰۵</option></select>
+  <p class="note">بانک سرویس شامل موارد عمومی و موارد پیشنهادی مخصوص پراید، ۲۰۶ و ۴۰۵ است. بازه‌ها پیشنهادی‌اند و باید با دفترچه همان مدل، نوع موتور، شرایط رانندگی و قطعه مصرفی تطبیق داده شوند.</p>
+  <div class="actions"><button class="secondary" id="loadCatalog">افزودن سرویس‌های پیشنهادی</button></div>
+ </div>
+ <div class="card">
+  <div class="section-title"><h3>درباره ما</h3></div>
+  <p class="note">گاراژ من؛ دفترچه دیجیتال مدیریت سرویس، سوابق تعمیرات و هزینه‌های خودرو. اطلاعات اصلی روی دستگاه شما نگهداری می‌شود و برای استفاده روزمره نیازی به ساخت حساب کاربری نیست.</p>
+  <div class="divider"></div><div class="setting-row"><strong>نسخه برنامه</strong><span class="muted">1.0.0</span></div>
+ </div>
+</section>
+</main>
+</div>
+<nav class="navbar" aria-label="ناوبری اصلی">
+ <button class="nav-item active" data-page="home"><span class="icon">home</span>خانه</button>
+ <button class="nav-item" data-page="history"><span class="icon">history</span>تاریخچه</button>
+ <button class="nav-item" data-page="report"><span class="icon">payments</span>گزارش هزینه</button>
+ <button class="nav-item" data-page="settings"><span class="icon">settings</span>تنظیمات</button>
+</nav>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><div class="modal-head"><h3 id="modalTitle">ثبت اطلاعات</h3><button class="close" id="modalClose"><span class="icon">close</span></button></div><div id="modalBody"></div><div class="actions"><button class="secondary" id="modalCancel">انصراف</button><button class="primary" id="modalSave">ذخیره</button></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id), nf=new Intl.NumberFormat('fa-IR'), money=n=>nf.format(Number(n||0))+' تومان';
+const catalog=[
+['روغن موتور','عمومی',5000,6],['فیلتر روغن','عمومی',5000,6],['فیلتر هوا','عمومی',10000,12],['فیلتر کابین','عمومی',10000,12],['فیلتر بنزین','عمومی',20000,24],['شمع موتور','عمومی',30000,24],['وایر شمع','عمومی',50000,36],['تسمه تایم','عمومی',60000,48],['تسمه دینام','عمومی',40000,24],['ضدیخ و مایع خنک‌کننده','عمومی',40000,24],['روغن گیربکس','عمومی',40000,36],['روغن ترمز','عمومی',40000,24],['لنت ترمز جلو','عمومی',30000,24],['لنت ترمز عقب','عمومی',40000,30],['دیسک ترمز','عمومی',60000,48],['صفحه و دیسک کلاچ','عمومی',80000,60],['باتری','عمومی',null,36],['لاستیک‌ها','عمومی',50000,60],['تنظیم باد و بالانس','عمومی',5000,3],['جلوبندی و سیبک‌ها','عمومی',20000,12],['کمک‌فنرها','عمومی',60000,48],['پلوس و گردگیر','عمومی',30000,24],['بلبرینگ چرخ','عمومی',50000,36],['شست‌وشوی دریچه گاز','عمومی',20000,12],['سرویس انژکتور','عمومی',30000,18],['سنسور اکسیژن','عمومی',null,36],['ترموستات','عمومی',null,36],['واترپمپ','عمومی',60000,48],['رادیاتور و شیلنگ‌ها','عمومی',20000,12],['فن و سیستم خنک‌کاری','عمومی',20000,12],['دینام و استارت','عمومی',null,24],['چراغ‌ها و فیوزها','عمومی',null,6],['برف‌پاک‌کن','عمومی',null,12],['سیستم تهویه و کولر','عمومی',null,12],['اگزوز و کاتالیزور','عمومی',null,24],['معاینه فنی','عمومی',null,12],
+['فیلتر بنزین داخل باک','pride',20000,24],['تنظیم سوپاپ پراید','pride',20000,12],['بازدید کاربراتور/انژکتور پراید','pride',20000,12],['سیم کلاچ پراید','pride',30000,24],['بازدید دسته‌موتور پراید','pride',20000,12],['بازدید جعبه فرمان پراید','pride',20000,12],
+['تسمه تایم TU3/TU5','206',60000,48],['تسمه دینام ۲۰۶','206',40000,24],['روغن گیربکس دستی ۲۰۶','206',40000,36],['بازدید کوئل ۲۰۶','206',20000,12],['بازدید دریچه گاز TU5','206',20000,12],['بازدید سنسورهای موتور ۲۰۶','206',20000,12],['بازدید دسته‌موتور ۲۰۶','206',20000,12],['بازدید سیستم خنک‌کاری ۲۰۶','206',20000,12],
+['تسمه تایم XU7 پژو ۴۰۵','405',60000,48],['تسمه دینام پژو ۴۰۵','405',40000,24],['تنظیم سوپاپ XU7','405',30000,18],['بازدید دلکو و وایر (مدل مربوطه)','405',20000,12],['بازدید پمپ بنزین ۴۰۵','405',30000,24],['بازدید جلوبندی ۴۰۵','405',20000,12],['بازدید سیستم خنک‌کاری XU7','405',20000,12]
+];
+const initial={plate:'',mileage:0,model:'general',theme:'light',services:[],records:[],fuel:[],googleClient:'',backupAt:''};
+let db=load(),googleToken=null,tokenClient=null,modalAction=null;
+function load(){try{return Object.assign({},initial,JSON.parse(localStorage.getItem('garageXData')||'{}'))}catch(e){return Object.assign({},initial)}}
+function save(){localStorage.setItem('garageXData',JSON.stringify(db));render();if(googleToken)queueSync()}
+function toast(t){$('toast').textContent=t;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2600)}
+function status(s){if(!s.lastKm&&!s.lastDate)return 'new';let kmDue=s.intervalKm&&s.lastKm!==null?Number(s.lastKm)+Number(s.intervalKm):null;let dateDue=s.intervalMonths&&s.lastDate?addMonths(s.lastDate,Number(s.intervalMonths)):null;let kmLeft=kmDue===null?Infinity:kmDue-Number(db.mileage||0);let daysLeft=dateDue===null?Infinity:Math.ceil((new Date(dateDue+'T23:59:59')-new Date())/86400000);if(kmLeft<0||daysLeft<0)return 'late';if(kmLeft<=5000||daysLeft<=30)return 'soon';return 'good'}
+function addMonths(date,months){let d=new Date(date+'T12:00:00');d.setMonth(d.getMonth()+months);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function statusText(k){return {late:'گذشته از موعد',soon:'نزدیک به موعد',good:'به‌روز',new:'ثبت نشده'}[k]}
+function statusClass(k){return {late:'red',soon:'orange',good:'green',new:'blue'}[k]}
+function render(){document.documentElement.dataset.theme=db.theme;$('plate').value=db.plate||'';$('mileage').value=db.mileage||'';$('googleClient').value=db.googleClient||'';$('vehicleModel').value=db.model||'general';$('countLate').textContent=nf.format(db.services.filter(s=>status(s)==='late').length);$('countSoon').textContent=nf.format(db.services.filter(s=>status(s)==='soon').length);$('countGood').textContent=nf.format(db.services.filter(s=>status(s)==='good').length);$('countNew').textContent=nf.format(db.services.filter(s=>status(s)==='new').length);$('serviceCount').textContent=nf.format(db.services.length)+' سرویس';renderDashboard();renderHistory();renderReport();$('backupInfo').textContent=db.backupAt?'آخرین فایل پشتیبان: '+db.backupAt:'ذخیره خودکار محلی فعال است.'}
+function serviceHtml(s){let st=status(s);let due=[];if(s.intervalKm)due.push('هر '+money(s.intervalKm).replace(' تومان','')+' کیلومتر');if(s.intervalMonths)due.push('هر '+nf.format(s.intervalMonths)+' ماه');return '<div class="service"><div style="min-width:0"><div class="service-name">'+esc(s.name)+'</div><div class="service-meta">'+(due.join(' • ')||'بدون بازه ثابت')+(s.lastKm?' • آخرین ثبت: '+nf.format(s.lastKm)+' km':'')+'</div></div><div style="display:flex;align-items:center;gap:6px"><span class="pill '+statusClass(st)+'">'+statusText(st)+'</span><div class="service-actions"><button class="mini-btn" data-record="'+s.id+'" title="ثبت انجام سرویس"><span class="icon">add_task</span></button><button class="mini-btn" data-edit="'+s.id+'" title="ویرایش"><span class="icon">edit</span></button></div></div></div>'}
+function renderDashboard(){let keys=['late','soon','good','new'],labels=['گذشته از موعد','نزدیک به موعد','به‌روز','ثبت نشده'];$('dashboard').innerHTML=keys.map((k,i)=>{let arr=db.services.filter(s=>status(s)===k);return '<div class="status-group '+statusClass(k)+'"><div class="status-head"><i class="dot"></i>'+labels[i]+' <span class="muted" style="font-size:10px">('+nf.format(arr.length)+')</span></div>'+(arr.length?arr.slice(0,30).map(serviceHtml).join(''):'<div class="empty">سرویسی در این دسته وجود ندارد.</div>')+'</div>'}).join('')||'<div class="card empty">هنوز سرویسی اضافه نشده است. از تنظیمات بانک سرویس‌ها را اضافه کن.</div>'}
+function renderHistory(){let q=($('historySearch').value||'').trim().toLowerCase(),arr=db.records.filter(r=>(r.name+' '+(r.note||'')).toLowerCase().includes(q)).sort((a,b)=>(b.date||'').localeCompare(a.date||''));$('historyList').innerHTML=arr.length?arr.map(r=>'<div class="record"><div><strong>'+esc(r.name)+'</strong><small>'+esc(r.date||'')+' • '+nf.format(r.km||0)+' کیلومتر'+(r.note?' • '+esc(r.note):'')+'</small></div><div style="text-align:left"><div class="amount">'+money(r.cost)+'</div><button class="mini-btn" data-delrecord="'+r.id+'"><span class="icon">delete</span></button></div></div>').join(''):'<div class="empty">هنوز سابقه‌ای ثبت نشده است.</div>'}
+function renderReport(){let sc=db.records.reduce((a,r)=>a+Number(r.cost||0),0),fc=db.fuel.reduce((a,r)=>a+Number(r.cost||0),0);$('serviceCost').textContent=money(sc);$('fuelCost').textContent=money(fc);$('recordCount').textContent=nf.format(db.records.length+db.fuel.length);$('allCost').textContent=money(sc+fc);let all=db.records.map(r=>({name:r.name,date:r.date,cost:r.cost,type:'سرویس'})).concat(db.fuel.map(r=>({name:'سوخت',date:r.date,cost:r.cost,type:'سوخت'}))).sort((a,b)=>(b.date||'').localeCompare(a.date||''));$('costBreakdown').innerHTML=all.length?all.map(r=>'<div class="record"><div><strong>'+esc(r.name)+'</strong><small>'+esc(r.date||'')+' • '+r.type+'</small></div><span class="amount">'+money(r.cost)+'</span></div>').join(''):'<div class="empty">هزینه‌ای ثبت نشده است.</div>'}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+name));document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.page===name));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.nav-item').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+$('plate').addEventListener('input',e=>{db.plate=e.target.value;localStorage.setItem('garageXData',JSON.stringify(db))});
+$('mileage').addEventListener('change',e=>{db.mileage=Math.max(0,Number(e.target.value)||0);save()});
+$('lightTheme').onclick=()=>{db.theme='light';save()};$('darkTheme').onclick=()=>{db.theme='dark';save()};
+function openModal(title,html,fn){$('modalTitle').textContent=title;$('modalBody').innerHTML=html;modalAction=fn;$('modalBackdrop').classList.add('show')}
+function closeModal(){$('modalBackdrop').classList.remove('show');modalAction=null}
+$('modalClose').onclick=$('modalCancel').onclick=closeModal;$('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeModal()});$('modalSave').onclick=()=>{if(modalAction){let ok=modalAction();if(ok!==false)closeModal()}};
+function serviceForm(s){let edit=!!s;openModal(edit?'ویرایش سرویس':'افزودن سرویس','<label class="field-label">نام سرویس یا قطعه</label><input class="field" id="fName" value="'+esc(s?.name||'')+'" placeholder="مثلاً روغن موتور"><div class="grid2"><div><label class="field-label">بازه کیلومتری</label><input class="field" id="fKm" type="number" min="0" value="'+(s?.intervalKm||'')+'" placeholder="مثلاً ۵۰۰۰"></div><div><label class="field-label">بازه زمانی (ماه)</label><input class="field" id="fMonths" type="number" min="0" value="'+(s?.intervalMonths||'')+'" placeholder="مثلاً ۶"></div></div><div class="grid2"><div><label class="field-label">آخرین کیلومتر انجام</label><input class="field" id="fLastKm" type="number" min="0" value="'+(s?.lastKm??'')+'"></div><div><label class="field-label">تاریخ آخرین انجام</label><input class="field" id="fLastDate" type="date" value="'+(s?.lastDate||'')+'"></div></div><p class="note">اگر سابقه‌ای وارد نکنی، وضعیت سرویس «ثبت نشده» خواهد بود. حداقل یکی از بازه‌های کیلومتری یا زمانی را وارد کن.</p>',()=>{let name=$('fName').value.trim(),km=Number($('fKm').value)||0,mo=Number($('fMonths').value)||0;if(!name){toast('نام سرویس را وارد کن');return false}let obj={id:s?.id||Date.now(),name:name,intervalKm:km||null,intervalMonths:mo||null,lastKm:$('fLastKm').value===''?null:Number($('fLastKm').value),lastDate:$('fLastDate').value||null};if(s)db.services=db.services.map(x=>x.id===s.id?obj:x);else db.services.push(obj);save();toast('سرویس ذخیره شد')})}
+function recordForm(s){openModal('ثبت انجام سرویس','<label class="field-label">سرویس</label><input class="field" id="rName" value="'+esc(s?.name||'')+'" placeholder="نام سرویس"><div class="grid2"><div><label class="field-label">تاریخ انجام</label><input class="field" id="rDate" type="date" value="'+new Date().toISOString().slice(0,10)+'"></div><div><label class="field-label">کیلومتر انجام</label><input class="field" id="rKm" type="number" value="'+(db.mileage||0)+'"></div></div><label class="field-label">هزینه (تومان)</label><input class="field" id="rCost" type="number" min="0" class="field" placeholder="۰"><label class="field-label">یادداشت</label><textarea class="field" id="rNote" rows="2" placeholder="توضیحات اختیاری"></textarea>',()=>{let name=$('rName').value.trim();if(!name){toast('نام سرویس را وارد کن');return false}let rec={id:Date.now(),name:name,date:$('rDate').value,km:Number($('rKm').value)||0,cost:Number($('rCost').value)||0,note:$('rNote').value};db.records.push(rec);let svc=db.services.find(x=>x.id===s?.id||x.name===name);if(svc){svc.lastKm=rec.km;svc.lastDate=rec.date}save();toast('سابقه ثبت شد')})}
+function fuelForm(){openModal('ثبت هزینه سوخت','<div class="grid2"><div><label class="field-label">تاریخ</label><input class="field" id="fuelDate" type="date" value="'+new Date().toISOString().slice(0,10)+'"></div><div><label class="field-label">کیلومتر</label><input class="field" id="fuelKm" type="number" value="'+(db.mileage||0)+'"></div></div><div class="grid2"><div><label class="field-label">مبلغ (تومان)</label><input class="field" id="fuelAmount" type="number" min="0"></div><div><label class="field-label">لیتر</label><input class="field" id="fuelLiters" type="number" min="0" step="0.01"></div></div><label class="field-label">یادداشت</label><input class="field" id="fuelNote" placeholder="اختیاری">',()=>{let amount=Number($('fuelAmount').value)||0;if(!amount){toast('مبلغ را وارد کن');return false}db.fuel.push({id:Date.now(),date:$('fuelDate').value,km:Number($('fuelKm').value)||0,cost:amount,liters:Number($('fuelLiters').value)||0,note:$('fuelNote').value});save();toast('هزینه سوخت ثبت شد')})}
+$('newRecord').onclick=()=>recordForm(null);$('addFuel').onclick=fuelForm;
+$('dashboard').addEventListener('click',e=>{let r=e.target.closest('[data-record]'),ed=e.target.closest('[data-edit]');if(r){let s=db.services.find(x=>x.id==r.dataset.record);recordForm(s)}if(ed){let s=db.services.find(x=>x.id==ed.dataset.edit);serviceForm(s)}});
+$('historyList').addEventListener('click',e=>{let b=e.target.closest('[data-delrecord]');if(b&&confirm('این سابقه حذف شود؟')){db.records=db.records.filter(r=>r.id!=b.dataset.delrecord);save()}});
+$('historySearch').addEventListener('input',renderHistory);
+$('loadCatalog').onclick=()=>{let model=db.model||'general',list=catalog.filter(c=>c[1]==='عمومی'||c[1]===model),existing=new Set(db.services.map(s=>s.name));let fresh=list.filter(c=>!existing.has(c[0]));fresh.forEach(c=>db.services.push({id:Date.now()+Math.random(),name:c[0],intervalKm:c[2],intervalMonths:c[3],lastKm:null,lastDate:null}));save();toast(nf.format(fresh.length)+' سرویس پیشنهادی اضافه شد')};
+$('vehicleModel').onchange=e=>{db.model=e.target.value;localStorage.setItem('garageXData',JSON.stringify(db))};
+$('backupDownload').onclick=()=>downloadBackup();$('backupRestore').onclick=()=>$('backupFile').click();
+function downloadBackup(){let data=JSON.stringify(db,null,2),blob=new Blob([data],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='garage-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(url);db.backupAt=new Date().toLocaleString('fa-IR');localStorage.setItem('garageXData',JSON.stringify(db));$('backupInfo').textContent='آخرین فایل پشتیبان: '+db.backupAt;toast('فایل پشتیبان آماده شد')}
+$('backupFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!Array.isArray(x.services)||!Array.isArray(x.records))throw Error();if(confirm('اطلاعات فعلی با نسخه پشتیبان جایگزین شود؟')){db=Object.assign({},initial,x);save();toast('بازیابی انجام شد')}}catch(err){toast('فایل پشتیبان معتبر نیست')}e.target.value=''};
+$('saveGoogle').onclick=()=>{db.googleClient=$('googleClient').value.trim();localStorage.setItem('garageXData',JSON.stringify(db));toast('شناسه ذخیره شد')};
+function driveStatus(t,connected){$('googleStatus').textContent=t;$('googleBadge').textContent=connected?'متصل':'آفلاین';$('googleBadge').className='pill '+(connected?'green':'blue')}
+$('connectGoogle').onclick=()=>{db.googleClient=$('googleClient').value.trim();localStorage.setItem('garageXData',JSON.stringify(db));if(!db.googleClient){toast('ابتدا OAuth Client ID را وارد کن');return}if(!window.google?.accounts?.oauth2){toast('کتابخانه ورود گوگل هنوز بارگذاری نشده است');return}try{tokenClient=google.accounts.oauth2.initTokenClient({client_id:db.googleClient,scope:'https://www.googleapis.com/auth/drive.appdata',callback:resp=>{if(resp.error){driveStatus('خطا در اتصال: '+resp.error,false);return}googleToken=resp.access_token;driveStatus('حساب گوگل متصل است',true);toast('اتصال Google Drive برقرار شد');syncDrive()}});tokenClient.requestAccessToken({prompt:'consent'})}catch(e){toast('تنظیمات OAuth را بررسی کن')}};
+async function driveRequest(url,options){let res=await fetch(url,Object.assign({headers:{Authorization:'Bearer '+googleToken}},options||{}));if(!res.ok)throw Error('Drive API '+res.status);return res.status===204?null:res.json()}
+async function syncDrive(){if(!googleToken){toast('ابتدا Google Drive را متصل کن');return}try{let list=await driveRequest('https://www.googleapis.com/drive/v3/files?spaces=appDataFolder&fields=files(id,name,mimeType)');let file=list.files.find(x=>x.name==='garagex-backup.json'),data=JSON.stringify(db),meta={name:'garagex-backup.json',mimeType:'application/json',parents:['appDataFolder']};let boundary='garagex_boundary';let body='--'+boundary+'\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n'+JSON.stringify(meta)+'\r\n--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+data+'\r\n--'+boundary+'--';let url=file?'https://www.googleapis.com/upload/drive/v3/files/'+file.id+'?uploadType=multipart':'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';await driveRequest(url,{method:file?'PATCH':'POST',headers:{Authorization:'Bearer '+googleToken,'Content-Type':'multipart/related; boundary='+boundary},body:body});driveStatus('آخرین پشتیبان‌گیری: '+new Date().toLocaleTimeString('fa-IR'),true);toast('پشتیبان در Google Drive ذخیره شد')}catch(e){driveStatus('خطا در پشتیبان‌گیری؛ اتصال و مجوزها را بررسی کن',false);toast('پشتیبان‌گیری ناموفق بود')}}
+$('syncGoogle').onclick=syncDrive;$('disconnectGoogle').onclick=()=>{if(googleToken&&google.accounts?.oauth2)google.accounts.oauth2.revoke(googleToken);googleToken=null;driveStatus('متصل نشده',false);toast('اتصال این نشست قطع شد')};
+let syncTimer;function queueSync(){clearTimeout(syncTimer);syncTimer=setTimeout(syncDrive,2500)}
+$('exportReport').onclick=()=>{let rows=[['نوع','عنوان','تاریخ','هزینه تومان']].concat(db.records.map(r=>['سرویس',r.name,r.date,r.cost]),db.fuel.map(r=>['سوخت','سوخت',r.date,r.cost]));let csv='\uFEFF'+rows.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');let a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='garage-cost-report.csv';a.click();URL.revokeObjectURL(u)};
+render();
+})();
+</script>
 </body>
 </html>
